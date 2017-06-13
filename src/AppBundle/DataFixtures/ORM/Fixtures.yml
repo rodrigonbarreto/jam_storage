@@ -1,0 +1,5 @@
+AppBundle\Entity\JamJar:
+    Exercise{1..10}:
+        jamType: '<jamTypes()>'
+        year:  '<year()>'
+        comment: '50%? <sentence()>'

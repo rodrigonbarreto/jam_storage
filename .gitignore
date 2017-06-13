@@ -25,17 +25,5 @@
 /bin/*
 !bin/console
 !bin/symfony_requirements
-
-# Assets and user uploads
-/web/bundles/
-/web/uploads/
-
-# PHPUnit
-/app/phpunit.xml
-/phpunit.xml
-
-# Build data
-/build/
-
-# Backup entities generated with doctrine:generate:entities command
-**/Entity/*~
+.idea
+.DS_Store
