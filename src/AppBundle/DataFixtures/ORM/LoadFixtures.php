@@ -27,7 +27,7 @@ class LoadFixtures implements FixtureInterface
     /**
      * @return string
      */
-    public function years()
+    public function JamYears()
     {
         $years = YearEnum::YEARS;
         $key = array_rand($years);
