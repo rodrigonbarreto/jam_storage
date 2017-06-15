@@ -45,3 +45,15 @@ services:
             - { name: sonata.admin, manager_type: orm, label: JamJar }
         calls:
             - [ setJamJarService, ['@app.jamjar_service'] ]
+
+    admin.jamtype:
+        class: AppBundle\Admin\JamTypeAdmin
+        arguments: [~, AppBundle\Entity\JamType, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: JamType }
+
+    admin.jamyear:
+        class: AppBundle\Admin\JamYearAdmin
+        arguments: [~, AppBundle\Entity\JamYear, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: JamYear }

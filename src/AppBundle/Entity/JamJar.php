@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * JamJar
@@ -21,19 +22,6 @@ class JamJar
      */
     private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="jamType", type="string", length=255)
-     */
-    private $jamType;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="year", type="string", length=255)
-     */
-    private $year;
 
     /**
      * @var string
@@ -54,52 +42,18 @@ class JamJar
     }
 
     /**
-     * Set jamType
-     *
-     * @param string $jamType
-     *
-     * @return JamJar
+     * @ORM\ManyToOne(targetEntity="JamType", inversedBy="jamJars")
+     * @ORM\JoinColumn(name="jam_type_id", referencedColumnName="id")
+     * @Assert\NotBlank()
      */
-    public function setJamType($jamType)
-    {
-        $this->jamType = $jamType;
-
-        return $this;
-    }
+    private $jamType;
 
     /**
-     * Get jamType
-     *
-     * @return string
+     * @ORM\ManyToOne(targetEntity="JamYear", inversedBy="jamJars")
+     * @ORM\JoinColumn(name="jam_year_id", referencedColumnName="id")
+     * @Assert\NotBlank()
      */
-    public function getJamType()
-    {
-        return $this->jamType;
-    }
-
-    /**
-     * Set year
-     *
-     * @param string $year
-     *
-     * @return JamJar
-     */
-    public function setYear($year)
-    {
-        $this->year = $year;
-
-        return $this;
-    }
-
-    /**
-     * Get year
-     *
-     * @return string
-     */
-    public function getYear()
-    {
-        return $this->year;
-    }
+    private $jamYear;
 
     /**
      * Set comment
@@ -124,5 +78,52 @@ class JamJar
     {
         return $this->comment;
     }
-}
 
+    /**
+     * Set jamType
+     *
+     * @param \AppBundle\Entity\JamType $jamType
+     *
+     * @return JamJar
+     */
+    public function setJamType(\AppBundle\Entity\JamType $jamType = null)
+    {
+        $this->jamType = $jamType;
+
+        return $this;
+    }
+
+    /**
+     * Get jamType
+     *
+     * @return \AppBundle\Entity\JamType
+     */
+    public function getJamType()
+    {
+        return $this->jamType;
+    }
+
+    /**
+     * Set jamYear
+     *
+     * @param \AppBundle\Entity\JamYear $jamYear
+     *
+     * @return JamJar
+     */
+    public function setJamYear(\AppBundle\Entity\JamYear $jamYear = null)
+    {
+        $this->jamYear = $jamYear;
+
+        return $this;
+    }
+
+    /**
+     * Get jamYear
+     *
+     * @return \AppBundle\Entity\JamYear
+     */
+    public function getJamYear()
+    {
+        return $this->jamYear;
+    }
+}

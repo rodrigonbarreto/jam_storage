@@ -1,5 +1,30 @@
+AppBundle\Entity\JamType:
+      type_1:
+        name: 'StrawBerry'
+      type_2:
+        name: 'Grape'
+      type_3:
+        name: 'BlueBerry'
+
+AppBundle\Entity\JamYear:
+      year_1:
+        year: '2014'
+      year_2:
+        year: '2015'
+      year_3:
+        year: '2016'
+      year_4:
+        year: '2017'
 AppBundle\Entity\JamJar:
-    Exercise{1..10}:
-        jamType: '<jamTypes()>'
-        year:  '<JamYears()>'
+      Jam_1:
+        JamType: '@type_1'
+        JamYear:  '@year_1'
+        comment: '50%? <sentence()>'
+      Jam_2:
+        JamType: '@type_2'
+        JamYear:  '@year_2'
+        comment: '50%? <sentence()>'
+      Jam_3:
+        JamType: '@type_3'
+        JamYear:  '@year_3'
         comment: '50%? <sentence()>'
